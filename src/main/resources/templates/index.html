@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>HireMeNow by HimeshNayak</title>
 		<meta charset="utf-8" />
@@ -43,34 +43,34 @@
 							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Android Intern</h2>
-									<p>Experience in developing apps in Android platform and Java. Good knowledge of AWS server, its configuration and applications. Good knowledge in MVVM architecture for Android programming. Hands-on in UI development</p>
+									<h2 th:text = "${title.get(0)}"/>
+									<p th:text = "${author.get(0)}"/>
 									<ul class="actions">
-										<li><a href="jobDetails?name=AndroidDeveloper" class="button">Learn more</a></li>
+										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2 th:text = "${title.get(1)}"/>
+									<p th:text = "${author.get(1)}"/>
 									<ul class="actions">
-										<li><a href="jobDetails.html" class="button">Learn more</a></li>
+										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="25% 25%" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<h2 th:text = "${title.get(2)}"/>
+									<p th:text = "${author.get(2)}"/>
 									<ul class="actions">
-										<li><a href="jobDetails.html" class="button">Learn more</a></li>
+										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
 									</ul>
 								</div>
 							</div>
@@ -127,23 +127,23 @@
 							<p>If you are a job seeker and want to get hired to the job you find </p>
 							<div class="split style1">
 								<section>
-									<form method="post" action="#">
+									<form action="/user" id="register-form">
 										<div class="fields">
 											<div class="field half">
 												<label for="name">Name</label>
 												<input type="text" name="name" id="name" />
 											</div>
-											<div class="field half">
+											<!-- <div class="field half">
 												<label for="email">Email</label>
 												<input type="text" name="email" id="email" />
 											</div>
 											<div class="field">
 												<label for="message">Message</label>
 												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
+											</div> -->
 										</div>
 										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
+											<li><input type = "submit">Register</button></li>
 										</ul>
 									</form>
 								</section>
@@ -198,6 +198,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="assets/js/forms.js"></script>
 	</body>
 </html>
