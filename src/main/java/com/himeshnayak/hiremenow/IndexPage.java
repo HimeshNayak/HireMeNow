@@ -8,7 +8,7 @@ public class IndexPage {
 
 	@GetMapping("/")
 	public String index() {
-		return "My first Spring Boot Application!";
+		return "Azure Connected";
 	}
 
 }
