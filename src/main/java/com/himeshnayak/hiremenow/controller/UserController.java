@@ -1,7 +1,5 @@
 package com.himeshnayak.hiremenow.controller;
 
-import java.util.List;
-
 import com.himeshnayak.hiremenow.model.User;
 import com.himeshnayak.hiremenow.service.UserService;
 
@@ -12,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("user")
+import java.util.List;
+
+@RequestMapping("/user")
 @RestController
 public class UserController {
     

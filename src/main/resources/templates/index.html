@@ -16,7 +16,7 @@
 						<ul>
 							<li><a href="#intro">Welcome</a></li>
 							<li><a href="#one">Recent Jobs</a></li>
-							<li><a href="#two">Procedure</a></li>
+							<li><a href="#two">Learn Skills</a></li>
 							<li><a href="#three">Register</a></li>
 						</ul>
 					</nav>
@@ -30,8 +30,20 @@
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
 							<h1>HireMeNow</h1>
-							<p>A job portal for all people.</p>
+							<p>A portal for students to learn skills and apply for internships.</p>
 							<ul class="actions">
+								<li><form>
+									<div class="col-12">
+										<select name="demo-category" id="demo-category">
+											<option value="5">Software Engineer</option>
+											<option value="1">Data Science</option>
+											<option value="2">Design</option>
+											<option value="3">IT</option>
+											<option value="4">Project Management</option>
+											<option value="6">UX</option>
+										</select>
+									</div>
+								</form></li>
 								<li><a href="#one" class="button scrolly">View Jobs</a></li>
 							</ul>
 						</div>
@@ -40,37 +52,37 @@
 				<!-- One -->
 					<section id="one" class="wrapper style2 spotlights">
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${title.get(0)}"/>
-									<p th:text = "${author.get(0)}"/>
+									<h2 th:text = "${name.get(0)}"/>
+									<p th:text = "${company.get(0)}"/> 
 									<ul class="actions">
-										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
+										<li><a href="jobDetails?id=0" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="top center" /></a>
+							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${title.get(1)}"/>
-									<p th:text = "${author.get(1)}"/>
+									<h2 th:text = "${name.get(1)}"/>
+									<p th:text = "${company.get(1)}"/> 
 									<ul class="actions">
-										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
+										<li><a href="jobDetails?id=1" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>
 						</section>
 						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="25% 25%" /></a>
+							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${title.get(2)}"/>
-									<p th:text = "${author.get(2)}"/>
-									<ul class="actions">
-										<li><a href="jobDetails?name=Android" class="button">Learn more</a></li>
+									<h2 th:text = "${name.get(2)}"/>
+									<p th:text = "${company.get(2)}"/> 
+									<ul class = "actions">
+										<li><a href="jobDetails?id=7200936" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>
@@ -80,42 +92,33 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>Learn Skills</h2>
+							<p>There are a lot of resources available for students to learn new skills and apply them to build innovative solutions and solve real life problems.</p>
 							<div class="features">
 								<section>
 									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Programming Concepts</h3>
+									<p>Skill up by learning core programming concepts and ace your internship coding tests and interviews.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Cyber Security</h3>
+									<p>Cybersecurity is the practice of protecting critical systems and sensitive information from digital attacks.</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>DevOps</h3>
+									<p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops).</p>
 								</section>
 								<section>
 									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
+									<h3>Operating Systems</h3>
+									<p>
+										An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs</p>
 								</section>
 							</div>
 							<ul class="actions">
-								<li><a href="jobDetails.html" class="button">Learn more</a></li>
+								<li><a href="/courses" class="button">Learn more</a></li>
 							</ul>
 						</div>
 					</section>
@@ -143,34 +146,29 @@
 											</div> -->
 										</div>
 										<ul class="actions">
-											<li><input type = "submit">Register</button></li>
+											<li><input type = "submit" value = "Register"/></li>
 										</ul>
 									</form>
 								</section>
 								<section>
 									<ul class="contact">
 										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
+											<h3>Developed By</h3>
+											<span>Himesh Nayak<br />
+											Web / App Developer<br />
+											India</span>
 										</li>
 										<li>
 											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
+											<a href="mailto:himeshnayak015@gmail.com">himeshnayak015@gmail.com</a>
 										</li>
 										<li>
 											<h3>Social</h3>
 											<ul class="icons">
-												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+												<li><a href="https://twitter.com/Himesh_nayak" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="https://github.com/HimeshNayak" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="https://instagram.com/himeshnayak.8" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="https://linkedin.com/in/himeshnayak015" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 											</ul>
 										</li>
 									</ul>

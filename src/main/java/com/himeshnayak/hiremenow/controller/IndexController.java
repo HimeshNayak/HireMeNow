@@ -10,6 +10,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.*;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -18,22 +19,23 @@ import java.util.ArrayList;
 public class IndexController {
 
 	@GetMapping("/")
-	public String index(@RequestParam(name="search", required=false, defaultValue="blockchain") ArrayList<String> title, ArrayList<String> author, Model model) {
+	public String index(@RequestParam(name="search", required=false, defaultValue="Software%20Engineer") String search, ArrayList<String> name, ArrayList<Integer> id, ArrayList<String> company, Model model) {
 
 		try {
-			String url = "http://openlibrary.org/search.json?q=" + title + "&limit=3";
+			String url = "https://www.themuse.com/api/public/jobs?category=" + search + "&level=Internship&page=1";
 			HttpResponse <JsonNode> httpResponse = Unirest.get(url).asJson();
 			
-			httpResponse.getBody().getObject().getJSONArray("docs").forEach(book -> {
-				JSONObject jsonObject = (JSONObject) book;
-				title.add(jsonObject.getString("title"));
-				author.add((String)jsonObject.getJSONArray("author_name").get(0));
-			});
+			JSONArray jobResults = httpResponse.getBody().getObject().getJSONArray("results");
+			for (int i = 0; i < 3; i++) {
+				JSONObject jsonObject = (JSONObject) jobResults.get(i);
+				name.add(jsonObject.getString("name"));
+				id.add(jsonObject.getInt("id"));
+				company.add((String)jsonObject.getJSONObject("company").getString("name"));
+			}
 
-			model.addAttribute("title", title);
-			model.addAttribute("author", author);
-			
-			// System.out.println("Book we found! " + title + " by " + author);
+			model.addAttribute("name", name);
+			model.addAttribute("company", company);
+			model.addAttribute("id", id);
 
 		} catch (UnirestException e) {
 			System.out.println("Error Occured");
