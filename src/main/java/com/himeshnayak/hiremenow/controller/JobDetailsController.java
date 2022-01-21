@@ -16,13 +16,18 @@ public class JobDetailsController {
 
 	@GetMapping("/jobDetails")
 	public String jobDetails(@RequestParam(name="id", required=true) String id, Model model) {
+		
 		try {
-			String url = "https://www.themuse.com/api/public/jobs?id=" + id + "&level=Internship&page=1";
+			String url = "https://www.themuse.com/api/public/jobs/" + id;
 			HttpResponse <JsonNode> httpResponse = Unirest.get(url).asJson();
 			
-			JSONObject obj =  (JSONObject) httpResponse.getBody().getObject().getJSONArray("results").get(0);
+			JSONObject obj =  (JSONObject) httpResponse.getBody().getObject();
+			model.addAttribute("title", obj.getString("name"));
 			model.addAttribute("contents", obj.getString("contents"));
+			model.addAttribute("company", obj.getJSONObject("company").getString("name"));
+			model.addAttribute("link", obj.getJSONObject("refs").getString("landing_page"));
 			
+
 			return "jobDetails";
 			
 		} catch (UnirestException e) {

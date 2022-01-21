@@ -15,11 +15,23 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import com.himeshnayak.hiremenow.model.JobHeader;
+
 @Controller
 public class IndexController {
 
 	@GetMapping("/")
-	public String index(@RequestParam(name="search", required=false, defaultValue="Software%20Engineer") String search, ArrayList<String> name, ArrayList<Integer> id, ArrayList<String> company, Model model) {
+	public String index(@RequestParam(name="search", required=false, defaultValue="Software%20Engineer") String search, Model model) {
+
+		ArrayList<JobHeader> jobs = new ArrayList<>();
+		// ArrayList<String> categories = new ArrayList<>();
+
+		// categories.add("Software Engineer");
+		// categories.add("Data Science");
+		// categories.add("Design");
+		// categories.add("IT");
+		// categories.add("Project Management");
+		// categories.add("UX");
 
 		try {
 			String url = "https://www.themuse.com/api/public/jobs?category=" + search + "&level=Internship&page=1";
@@ -28,14 +40,14 @@ public class IndexController {
 			JSONArray jobResults = httpResponse.getBody().getObject().getJSONArray("results");
 			for (int i = 0; i < 3; i++) {
 				JSONObject jsonObject = (JSONObject) jobResults.get(i);
-				name.add(jsonObject.getString("name"));
-				id.add(jsonObject.getInt("id"));
-				company.add((String)jsonObject.getJSONObject("company").getString("name"));
+				int id = jsonObject.getInt("id");
+				String title = jsonObject.getString("name");
+				String company = (String)jsonObject.getJSONObject("company").getString("name");
+				jobs.add(new JobHeader(id, title, company));
 			}
 
-			model.addAttribute("name", name);
-			model.addAttribute("company", company);
-			model.addAttribute("id", id);
+			model.addAttribute("jobs", jobs);
+			// model.addAttribute("categories", categories);
 
 		} catch (UnirestException e) {
 			System.out.println("Error Occured");

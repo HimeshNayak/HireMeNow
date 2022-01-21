@@ -18,6 +18,7 @@
 							<li><a href="#one">Recent Jobs</a></li>
 							<li><a href="#two">Learn Skills</a></li>
 							<li><a href="#three">Register</a></li>
+							<li><a href="/login">Discuss</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -32,18 +33,13 @@
 							<h1>HireMeNow</h1>
 							<p>A portal for students to learn skills and apply for internships.</p>
 							<ul class="actions">
-								<li><form>
+								<!-- <li>
 									<div class="col-12">
-										<select name="demo-category" id="demo-category">
-											<option value="5">Software Engineer</option>
-											<option value="1">Data Science</option>
-											<option value="2">Design</option>
-											<option value="3">IT</option>
-											<option value="4">Project Management</option>
-											<option value="6">UX</option>
+										<select name="demo-category" id="demo-category" th:field="*{jobCategory}">
+											<option th:each="category : ${categories}" th:value="${category}" th:text= "${category}"/>
 										</select>
 									</div>
-								</form></li>
+								</li> -->
 								<li><a href="#one" class="button scrolly">View Jobs</a></li>
 							</ul>
 						</div>
@@ -55,10 +51,10 @@
 							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${name.get(0)}"/>
-									<p th:text = "${company.get(0)}"/> 
+									<h2 th:text = "${jobs.get(0).getTitle()}"/>
+									<p th:text = "${jobs.get(0).getCompany()}"/> 
 									<ul class="actions">
-										<li><a href="jobDetails?id=0" class="button">View Job</a></li>
+										<li><a th:href="@{/jobDetails(id=${jobs.get(0).getJobId()})}" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>
@@ -67,10 +63,10 @@
 							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${name.get(1)}"/>
-									<p th:text = "${company.get(1)}"/> 
+									<h2 th:text = "${jobs.get(1).getTitle()}"/>
+									<p th:text = "${jobs.get(1).getCompany()}"/> 
 									<ul class="actions">
-										<li><a href="jobDetails?id=1" class="button">View Job</a></li>
+										<li><a th:href="@{/jobDetails(id=${jobs.get(1).getJobId()})}" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>
@@ -79,10 +75,10 @@
 							<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a> -->
 							<div class="content">
 								<div class="inner">
-									<h2 th:text = "${name.get(2)}"/>
-									<p th:text = "${company.get(2)}"/> 
-									<ul class = "actions">
-										<li><a href="jobDetails?id=7200936" class="button">View Job</a></li>
+									<h2 th:text = "${jobs.get(2).getTitle()}"/>
+									<p th:text = "${jobs.get(2).getCompany()}"/> 
+									<ul class="actions">
+										<li><a th:href="@{/jobDetails(id=${jobs.get(2).getJobId()})}" class="button">View Job</a></li>
 									</ul>
 								</div>
 							</div>

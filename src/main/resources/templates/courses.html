@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Job Details - HireMeNow</title>
+		<title>Courses - HireMeNow</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,8 +15,8 @@
 				<nav>
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li><a href="/jobDetails" class="active">Jobs</a></li>
-						<li><a href="/courses">Courses</a></li>
+						<li><a href="/">Jobs</a></li>
+						<li><a href="/courses" class="active">Courses</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -26,7 +26,23 @@
 
 				<!-- Main -->
 					<section id="main" class="wrapper">
-						<div class="inner" th:text = "${contents}"/>
+						<div class="inner">
+							<h1 class="major">Courses</h1>
+							<section>
+								<h2>Java Application using Microsoft Azure</h2>
+								<h3>Here are some Youtube playlists you might want to follow to build a Java Application with Microsoft Azure</h3>
+								<div class="table-wrapper">
+									<table>
+										<tbody>
+											<tr>
+												<td><iframe width="300" height="200" src="https://www.youtube.com/embed/VHbSopMyc4M?list=PLBlnK6fEyqRjKA_NuK9mHmlk0dZzuP1P5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+												<td><iframe width="300" height="200" src="https://www.youtube.com/embed/vR-y_2zWrIE?list=PLWKjhJtqVAbkFiqHnNaxpOPhh9tSWMXIF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+												<td><iframe width="300" height="200" src="https://www.youtube.com/embed/6QnY2LtvAIs?list=PLLasX02E8BPDgjhYxhKRrEGjPLNrORv_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+											</tr>
+									</table>
+								</div>
+							</section>
+						</div>
 					</section>
 
 			</div>
