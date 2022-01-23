@@ -15,10 +15,9 @@
 					<nav>
 						<ul>
 							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Recent Jobs</a></li>
+							<li><a href="#one">Internships</a></li>
 							<li><a href="#two">Learn Skills</a></li>
-							<li><a href="#three">Register</a></li>
-							<li><a href="/login">Discuss</a></li>
+							<li><a href="#three">Register / Login</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -40,7 +39,7 @@
 										</select>
 									</div>
 								</li> -->
-								<li><a href="#one" class="button scrolly">View Jobs</a></li>
+								<li><a href="#one" class="button scrolly">View Internships</a></li>
 							</ul>
 						</div>
 					</section>
@@ -126,25 +125,31 @@
 							<p>If you are a job seeker and want to get hired to the job you find </p>
 							<div class="split style1">
 								<section>
-									<form action="/user" id="register-form">
+									<form action="#" th:action="@{/user}" th:object="${user}" method="post">
 										<div class="fields">
 											<div class="field half">
 												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
+												<input type="text" th:field="*{name}" />
 											</div>
-											<!-- <div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
+											<div class="field half">
+												<label for="password">Password</label>
+												<input type="password" th:field="*{password}" />
 											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div> -->
+											<div class="field half">
+												<input type="radio" id="student" th:field="*{type}" value="Student" >
+												<label for="student">Student</label>
+												<input type="radio" id="mentor" th:field="*{type}" value="Mentor" checked>
+												<label for="mentor">Mentor</label>
+											</div>
 										</div>
 										<ul class="actions">
 											<li><input type = "submit" value = "Register"/></li>
 										</ul>
 									</form>
+									<p>Already Registered?</p>
+									<ul class="actions">
+										<li><button onclick="window.location.replace('/login');">Login</button></li>
+									</ul>
 								</section>
 								<section>
 									<ul class="contact">

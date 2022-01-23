@@ -1,8 +1,11 @@
 package com.himeshnayak.hiremenow.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mashape.unirest.http.HttpResponse;
@@ -15,10 +18,22 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+import com.himeshnayak.hiremenow.service.UserService;
 import com.himeshnayak.hiremenow.model.JobHeader;
+import com.himeshnayak.hiremenow.model.User;
 
 @Controller
 public class IndexController {
+
+	private final UserService userService;
+
+	@Autowired
+	public IndexController(UserService userService) {
+		this.userService = userService;
+	}
 
 	@GetMapping("/")
 	public String index(@RequestParam(name="search", required=false, defaultValue="Software%20Engineer") String search, Model model) {
@@ -53,7 +68,23 @@ public class IndexController {
 			System.out.println("Error Occured");
 		}
 
+		User user = new User();
+		model.addAttribute("user", user);
+
 		return "index";
+	}
+
+	@PostMapping("/user") 
+	public String registerSuccess(@ModelAttribute("user") User user, HttpServletResponse response) {
+		user.setUserId();
+		userService.addUser(user);
+		
+		// add id to cookie and then fetch details from cosmos db in profile
+		String userId = user.getUUID().toString();
+		Cookie cookie = new Cookie("userId", userId);
+		response.addCookie(cookie);
+		
+		return "user";
 	}
 
 }

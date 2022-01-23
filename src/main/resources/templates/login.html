@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Error Ocurred - HireMeNow</title>
+		<title>Login - HireMeNow</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,8 +27,24 @@
 				<!-- Main -->
 					<section id="main" align= "center" class="wrapper">
 						<div class="inner">
-                            <h1>404</h1>
-                            <h2>Page Not Found!</h2>
+                            <h1>Login</h1>
+                            <section>
+                                <form action="#" th:action="@{/login}" th:object="${loginUser}" method="post">
+                                    <div class="fields">
+                                        <div class="field half">
+                                            <label for="name">Name</label>
+                                            <input type="text" th:field="*{name}" />
+                                        </div>
+                                        <div class="field half">
+                                            <label for="password">Password</label>
+                                            <input type="password" th:field="*{password}" />
+                                        </div>
+                                    </div>
+                                    <ul class="actions">
+                                        <li><input type = "submit" value = "Login"/></li>
+                                    </ul>
+                                </form>
+                            </section>
                         </div>
 					</section>
 

@@ -2,28 +2,47 @@ package com.himeshnayak.hiremenow.model;
 
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class User {
     
-    private final UUID id;
-    private final String name;
+    private UUID userId;
+    private String name;
+    private String password;
+    private String type;
 
-    public User(@JsonProperty("id") UUID id,
-                @JsonProperty("name") String name) {
-        if (id == null)
-            this.id = UUID.randomUUID();
-        else 
-            this.id = id;
+    public void setUserId() {
+        this.userId = UUID.randomUUID();
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
+    public void setPassword(String p) {
+        this.password = p;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public UUID getUUID() {
+        return userId;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String toString() {
+        return "UUID: " + userId + "\nName: " + name + "\npassword: " + password + "\nType: " + type;
     }
 
 }

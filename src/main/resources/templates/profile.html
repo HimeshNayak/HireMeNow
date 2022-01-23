@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Job Details - HireMeNow</title>
+		<title>Profile - HireMeNow</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,8 +15,10 @@
 				<nav>
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li><a href="/jobDetails" class="active">Internships</a></li>
+						<li><a href="/jobDetails">Internships</a></li>
 						<li><a href="/courses">Courses</a></li>
+                        <li><a href="/profile" class="active">Profile</a></li>
+						<li><button onclick="logout();">Logout</button></li>
 					</ul>
 				</nav>
 			</header>
@@ -25,16 +27,15 @@
 			<div id="wrapper">
 
 				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner" >
-							<h1 th:text="${title}"/>
-							<section>
-								<h2 th:text="${company}"/>
-								<a th:href="${link}" class = "button" align="right">Apply</a>
-								<br/><br/>
-								<div th:utext = "${contents}"/>
-							</section>
-						</div>
+					<section id="main" align= "center" class="wrapper">
+						<div class="inner">
+							<h1 align="center" th:text="'Welcome ' + ${user.getName() + '!'}" />
+                            <h2>Personal Details</h2>
+                                <br/>
+                                <h3 th:text="${user.getUUID()}" id ="userId"/>
+                                <h3 th:text="'Password ' + ${user.getPassword()}" />
+                                <h3 th:text="'Type ' + ${user.getType().toString()}" />
+                        </div>
 					</section>
 
 			</div>
@@ -56,6 +57,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script type="text/javascript">
+				function logout() {
+					document.cookie="userId=invalid";
+					window.location.replace("/");
+				}
+			</script>
 
 	</body>
 </html>
