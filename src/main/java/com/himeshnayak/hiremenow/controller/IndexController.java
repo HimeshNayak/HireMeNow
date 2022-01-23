@@ -81,8 +81,11 @@ public class IndexController {
 		
 		// add id to cookie and then fetch details from cosmos db in profile
 		String userId = user.getUUID().toString();
-		Cookie cookie = new Cookie("userId", userId);
-		response.addCookie(cookie);
+		String name = user.getName().replace(' ', '_');
+		String type = user.getType();
+		response.addCookie(new Cookie("userId", userId));
+		response.addCookie(new Cookie("name", name));
+		response.addCookie(new Cookie("type", type));
 		
 		return "user";
 	}

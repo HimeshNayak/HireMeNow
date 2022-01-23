@@ -15,10 +15,10 @@
 				<nav>
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li><a href="/jobDetails">Internships</a></li>
+						<li><a href="/">Internships</a></li>
 						<li><a href="/courses">Courses</a></li>
-                        <li><a href="/discuss" class="active">Discuss</a></li>
-                        <li><a href="/user">Profile</a></li>
+						<li><a href="/discuss" class="active">Discuss</a></li>
+						<li><a href="/profile">Profile</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -27,9 +27,41 @@
 			<div id="wrapper">
 
 				<!-- Main -->
-					<section id="main" align= "center" class="wrapper">
+					<section id="main" class="wrapper">
 						<div class="inner">
-                            <h1>Discuss Here</h1>
+                            <div class="split style1">
+								<section>
+									<h1>Discussions</h1>
+									<ul th:each="p : ${allPosts}" style="list-style:none;margin:0px;padding:0px">
+										<li>
+											<table>
+												<thead>
+													<tr>
+														<th th:text="${p.getName()}"/>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td th:text="${p.getNote()}"/>
+													</tr>
+												</tbody>
+											</table>
+										</li>
+									</ul>
+								</section>
+								<section>
+									<div style="margin-top:100px;padding: 10px;">
+										<form action="#" th:action="@{/discuss}" th:object="${post}" method="post">
+											<div align = "center" class="fields">
+												<textarea name="note" rows="10" cols="40" th:field="*{note}" placeholder="Enter Post Message" />
+											</div>
+											<ul class="actions">
+												<li><input type = "submit" value = "Post"/></li>
+											</ul>
+										</form>
+									</div>
+								</section>
+							</div>
                         </div>
 					</section>
 

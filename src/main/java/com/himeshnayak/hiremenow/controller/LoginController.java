@@ -43,8 +43,11 @@ public class LoginController {
         if (userInDB != null) {
             if (loginUser.getPassword().equals(userInDB.getPassword())) {
                 String userId = userInDB.getUUID().toString();
-                Cookie cookie = new Cookie("userId", userId);
-                response.addCookie(cookie);
+                String name = userInDB.getName().replace(' ', '_');
+                String type = userInDB.getType();
+                response.addCookie(new Cookie("userId", userId));
+                response.addCookie(new Cookie("name", name));
+                response.addCookie(new Cookie("type", type));
                 return "redirect:/profile";
             } else {
                 System.out.println("Password did not match");

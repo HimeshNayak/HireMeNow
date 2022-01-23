@@ -15,9 +15,10 @@
 				<nav>
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li><a href="/jobDetails">Internships</a></li>
+						<li><a href="/">Internships</a></li>
 						<li><a href="/courses">Courses</a></li>
-                        <li><a href="/profile" class="active">Profile</a></li>
+						<li><a href="/discuss">Discuss</a></li>
+						<li><a href="/profile" class="active">Profile</a></li>
 						<li><button onclick="logout();">Logout</button></li>
 					</ul>
 				</nav>
@@ -61,6 +62,8 @@
 			<script type="text/javascript">
 				function logout() {
 					document.cookie="userId=invalid";
+					document.cookie="type=null";
+					document.cookie="name=null";
 					window.location.replace("/");
 				}
 			</script>
