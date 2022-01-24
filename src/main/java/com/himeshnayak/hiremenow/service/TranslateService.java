@@ -17,7 +17,7 @@ public class TranslateService {
         .addPathSegment("/translate")
         .addQueryParameter("api-version", "3.0")
         .addQueryParameter("from", "en")
-        .addQueryParameter("to", "it")
+        .addQueryParameter("to", "hi")
         .build();
 
     // Instantiates the OkHttpClient.
