@@ -39,14 +39,6 @@ public class IndexController {
 	public String index(@RequestParam(name="search", required=false, defaultValue="Software%20Engineer") String search, Model model) {
 
 		ArrayList<JobHeader> jobs = new ArrayList<>();
-		// ArrayList<String> categories = new ArrayList<>();
-
-		// categories.add("Software Engineer");
-		// categories.add("Data Science");
-		// categories.add("Design");
-		// categories.add("IT");
-		// categories.add("Project Management");
-		// categories.add("UX");
 
 		try {
 			String url = "https://www.themuse.com/api/public/jobs?category=" + search + "&level=Internship&page=1";
@@ -62,7 +54,6 @@ public class IndexController {
 			}
 
 			model.addAttribute("jobs", jobs);
-			// model.addAttribute("categories", categories);
 
 		} catch (UnirestException e) {
 			System.out.println("Error Occured");
