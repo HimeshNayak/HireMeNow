@@ -1,1 +1,71 @@
-this is translate page
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Translate - HireMeNow</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title">HireMeNow</a>
+				<nav>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/">Internships</a></li>
+						<li><a href="/courses">Courses</a></li>
+						<li><a href="/discuss" class="active">Discuss</a></li>
+						<li><a href="/profile">Profile</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+                            <section>
+                                <h1>Translate</h1>
+                                <form action="#" th:action="@{/translate}" th:object="${message}" method="post">
+                                    <div align = "center" class="fields">
+                                        <textarea name="note" rows="5" cols="40" th:field="*{text}" placeholder="Enter Message to translate" />
+                                    </div>
+                                    <ul class="actions">
+                                        <li><input type = "submit" value = "Translate"/></li>
+                                        
+                                    </ul>
+                                </form>
+                                <h2>Translation: </h2>
+                                <h3 th:text="${translation}"/>
+                                <button onclick="window.location.replace('/translate')">Translate Another Text?</button>
+                            </section>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; HimeshNayak 2022. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
