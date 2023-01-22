@@ -40,8 +40,14 @@ public class IndexController {
 
 		ArrayList<JobHeader> jobs = new ArrayList<>();
 
+		if (jobs.isEmpty()) {
+			search = "";
+		} else {
+			search = "&category=" + search;
+		}
+
 		try {
-			String url = "https://www.themuse.com/api/public/jobs?category=" + search + "&level=Internship&page=1";
+			String url = "https://www.themuse.com/api/public/jobs?level=Internship&page=1" + search;
 			HttpResponse <JsonNode> httpResponse = Unirest.get(url).asJson();
 			
 			JSONArray jobResults = httpResponse.getBody().getObject().getJSONArray("results");
